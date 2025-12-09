@@ -8,5 +8,25 @@
 import Foundation
 
 class ProductsDataSource {
+    private let baseURL = URL(string: "https://fakestoreapi.com/products")!
     
+    func fetchProduct(completion: @escaping (Result<[ProductsModel], Error>) -> Void) {
+        URLSession.shared.dataTask(with: baseURL) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let product = try JSONDecoder().decode([ProductsModel].self, from: data)
+                completion(.success(product))
+            } catch {
+                completion(.failure(error))
+            }
+            
+        }.resume()
+    }
 }
