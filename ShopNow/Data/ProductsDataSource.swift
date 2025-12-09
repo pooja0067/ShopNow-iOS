@@ -30,3 +30,20 @@ class ProductsDataSource {
         }.resume()
     }
 }
+
+class CategoriesRepo {
+    
+    func loadCategoriesFromFile() -> [CategoryModel] {
+        guard let url = Bundle.main.url(forResource: "categories", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            return []
+        }
+        do {
+            let categories = try JSONDecoder().decode([CategoryModel].self, from: data)
+            return categories
+        } catch {
+            print("Error decoding: \(error)")
+            return []
+        }
+    }
+}

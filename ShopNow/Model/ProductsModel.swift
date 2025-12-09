@@ -21,3 +21,13 @@ struct RatingModel: Codable {
     let rate: Double
     let count: Int
 }
+
+struct CategoryModel: Codable, Identifiable, Hashable {
+    let id: UUID = UUID()           // auto-generated, not decoded
+    let name: String
+    let image: String
+    
+    enum CodingKeys: String, CodingKey {
+            case name, image      // decoder will decode only these keys
+        }
+}

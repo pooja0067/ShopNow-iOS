@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Electronics",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
+  },
+  {
+    "name": "Men's Fashion",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Women's Fashion",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Home & Kitchen",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
+  },
+  {
+    "name": "Beauty & Personal Care",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Sports & Outdoors",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Toys & Games",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Books",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Automotive",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "name": "Grocery & Gourmet Food",
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  }
+]
