@@ -26,7 +26,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                NavigationLink(destination: CategoryView()) {
+                NavigationLink(destination: ProductsView(viewModel: viewModel)) {
                     Text("hello")
                 }
             }

@@ -19,7 +19,7 @@ struct ShopNowApp: App {
             if !hasLaunchedBefore {
                 LoginView(emailField: $emailField, pwdField: $pwdField, tab: $tab)
             } else {
-                ContentView(viewModel: ProductsViewModel())
+                ProductsView(viewModel: ProductsViewModel())
             }
         }
     }
