@@ -44,21 +44,22 @@ struct CardView: View {
                 Text(title)
                     .font(.callout)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
                 
                 Text("$\(String(format: "%.2f", price))")
                     .font(.caption)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
 
                 Text(category)
                     .font(.caption2)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
+                    .padding(.bottom, 12)
 
                 Button {
                     // add to cart
                 } label: {
                     Text("Add to cart")
-                        .font(.caption)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                         .padding(8)
@@ -74,8 +75,9 @@ struct CardView: View {
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(.gray)
+                .fill(.white)
         )
+        .shadow(color: Color.black.opacity(0.30), radius: 8, x: 0, y: 4)
     }
 }
 

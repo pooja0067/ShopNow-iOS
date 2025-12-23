@@ -17,8 +17,11 @@ struct ProductsView: View {
         ]
         
         NavigationStack {
+            Text("Shop now")
+                .font(.custom("Arial Rounded MT Bold", size: 34).italic())
+                .bold(true)
             ScrollView(showsIndicators: false) {
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         ForEach(categoriesRepo.loadCategoriesFromFile()) { category in
                             NavigationLink {
@@ -50,6 +53,22 @@ struct ProductsView: View {
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 16)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        CartView()
+                    } label: {
+                        Image(systemName: "cart")
+                            .font(.title3)
+                            .background(
+                                Circle()
+                                    .fill(Color.red)
+                                    .frame(width: 12, height: 12)
+                                    .offset(x: 12, y: -10)
+                            )
+                    }
+                }
             }
         }
     }

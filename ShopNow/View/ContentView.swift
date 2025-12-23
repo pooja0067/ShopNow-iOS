@@ -13,7 +13,6 @@ struct ContentView: View {
     @State private var isSelected: Bool = false
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     @ObservedObject var viewModel: ProductsViewModel
-    //var categoriesRepo = CategoriesRepo()
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
