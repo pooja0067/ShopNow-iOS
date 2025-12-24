@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CartTotalView: View {
+    @EnvironmentObject private var cart: CartStore
     var body: some View {
         VStack {
             HStack {

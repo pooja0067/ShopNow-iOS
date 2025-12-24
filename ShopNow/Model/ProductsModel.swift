@@ -22,6 +22,19 @@ struct RatingModel: Codable {
     let count: Int
 }
 
+extension ProductsModel {
+    func toCartItem(quantity: Int = 1) -> CartItem {
+        CartItem(
+            id: id,
+            title: title,
+            image: image,
+            price: price,
+            category: category,
+            qty: quantity
+        )
+    }
+}
+
 struct CategoryModel: Codable, Identifiable, Hashable {
     let id: UUID = UUID()           // auto-generated, not decoded
     let name: String
@@ -30,4 +43,13 @@ struct CategoryModel: Codable, Identifiable, Hashable {
     enum CodingKeys: String, CodingKey {
             case name, image      // decoder will decode only these keys
         }
+}
+
+struct CartItem: Identifiable, Codable, Equatable {
+    let id: Int            // product id
+    let title: String
+    let image: String
+    let price: Double
+    let category: String
+    var qty: Int
 }

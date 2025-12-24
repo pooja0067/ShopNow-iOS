@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ProductsView: View {
+    @EnvironmentObject private var cart: CartStore
     @ObservedObject var viewModel: ProductsViewModel
+    @State private var showAddedToast = false
+    @State private var toastMessage = "Added to cart"
     var categoriesRepo = CategoriesRepo()
     var body: some View {
         let columns = [
@@ -47,7 +50,27 @@ struct ProductsView: View {
                             title: products.title,
                             image: products.image,
                             price: products.price,
-                            category: products.category
+                            category: products.category,
+                            action: {
+                                let item = CartItem(
+                                    id: products.id,
+                                    title: products.title,
+                                    image: products.image,
+                                    price: products.price,
+                                    category: products.category,
+                                    qty: 1
+                                )
+                                cart.add(product: item)
+                                toastMessage = "Added to cart"
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    showAddedToast = true
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        showAddedToast = false
+                                    }
+                                }
+                            }
                         )
                     }
                 }
@@ -68,6 +91,20 @@ struct ProductsView: View {
                                     .offset(x: 12, y: -10)
                             )
                     }
+                }
+            }
+            .overlay(alignment: .bottom) {
+                if showAddedToast {
+                    Text(toastMessage)
+                        .font(.callout)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule().fill(Color.black.opacity(0.85))
+                        )
+                        .padding(.bottom, 24)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
         }

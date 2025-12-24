@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct ShopNowApp: App {
     // Persisted first-launch flag using SwiftUI's AppStorage wrapper
+    @StateObject private var cartStore = CartStore()
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     @State var emailField: String = ""
     @State var pwdField: String = ""
@@ -20,6 +21,7 @@ struct ShopNowApp: App {
                 LoginView(emailField: $emailField, pwdField: $pwdField, tab: $tab)
             } else {
                 ProductsView(viewModel: ProductsViewModel())
+                    .environmentObject(cartStore)
             }
         }
     }

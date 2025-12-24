@@ -14,6 +14,7 @@ struct CardView: View {
     var image: String
     var price: Double
     var category: String
+    var action: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -56,7 +57,7 @@ struct CardView: View {
                     .padding(.bottom, 12)
 
                 Button {
-                    // add to cart
+                    action()
                 } label: {
                     Text("Add to cart")
                         .font(.title3)
@@ -82,5 +83,7 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(id: 1, title: "Jacket", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 15.0, category: "Men's clothging")
+    CardView(id: 1, title: "Jacket", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 15.0, category: "Men's clothging", action: {
+        print("add to cart")
+    })
 }

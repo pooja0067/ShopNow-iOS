@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct CartView: View {
-    
+    @EnvironmentObject private var cart: CartStore
+    @State var isAdded: Bool = false
+    @State var isSubtracted: Bool = false
     var body: some View {
         NavigationStack {
-            VStack {
-                CartRowView(title: "Long full", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 9.009999, category: "T-shirt")
-                CartRowView(title: "Long full", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 9.009999, category: "T-shirt")
-                CartRowView(title: "Long full", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 9.009999, category: "T-shirt")
-                Spacer()
-                CartTotalView()
+            ScrollView {
+                VStack {
+                    ForEach(cart.items) { car in
+                        CartRowView(title: car.title, image: car.image, price: car.price, category: car.category, isAdded: $isAdded, isSubtracted: $isSubtracted)
+                    }
+                    Spacer()
+                    CartTotalView()
+                }
+                .navigationTitle("Shop now")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle("Shop now")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
-}
-
-#Preview {
-    CartView()
 }
