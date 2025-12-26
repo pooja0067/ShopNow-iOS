@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AllDoneView: View {
+    
+    @State private var isAnimating: Bool = false
+    
     var body: some View {
         VStack {
             Image(systemName: "checkmark.circle.fill")
@@ -16,6 +19,8 @@ struct AllDoneView: View {
                 .frame(width: 120, height: 120)
                 .foregroundStyle(Color.green)
                 .padding()
+                .scaleEffect(isAnimating ? 1.0 : 0.0)
+                .rotationEffect(.degrees(isAnimating ? 0 : -15))
             Text("All done!")
                 .font(.largeTitle.bold())
             Spacer()
@@ -35,6 +40,22 @@ struct AllDoneView: View {
                     )
             }
             .padding()
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    //
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.title3)
+                }
+            }
+        }
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1)) {
+                isAnimating = true
+            }
         }
     }
 }

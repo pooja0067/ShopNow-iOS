@@ -10,6 +10,25 @@ import SwiftUI
 struct PaymentcardView: View {
     var title: String
     var image: String
+
+    /// Unique identifier for this payment option
+    var optionId: String
+
+    /// Selected payment option id in parent
+    @Binding var selectedOptionId: String
+
+    private var isOnBinding: Binding<Bool> {
+        Binding(
+            get: { selectedOptionId == optionId },
+            set: { newValue in
+                if newValue {
+                    selectedOptionId = optionId
+                } else if selectedOptionId == optionId {
+                    selectedOptionId = ""
+                }
+            }
+        )
+    }
     
     var body: some View {
         HStack {
@@ -21,8 +40,11 @@ struct PaymentcardView: View {
             Text(title)
                 .font(.title)
             Spacer()
+            Toggle("", isOn: isOnBinding)
+                .labelsHidden()
         }
         .frame(maxWidth: .infinity)
+        .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white.opacity(0.95))
@@ -30,10 +52,4 @@ struct PaymentcardView: View {
         )
         .shadow(color: Color.black.opacity(0.30), radius: 8, x: 0, y: 4)
     }
-}
-
-#Preview(traits: .sizeThatFitsLayout) {
-    PaymentcardView(title: "Payment card", image: "creditcard.and.numbers")
-    PaymentcardView(title: "Payment card", image: "creditcard.and.numbers")
-    PaymentcardView(title: "Payment card", image: "creditcard.and.numbers")
 }
