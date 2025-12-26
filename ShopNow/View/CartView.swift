@@ -41,7 +41,7 @@ struct CartView: View {
                 } else {
                     VStack {
                         ForEach(cart.items) { car in
-                            CartRowView(title: car.title, image: car.image, price: car.price, category: car.category, isAdded: $isAdded, isSubtracted: $isSubtracted) {
+                            CartRowView(item: car, title: car.title, image: car.image, price: car.price, category: car.category) {
                                 cart.delete(productId: car.id)
                             }
                         }
