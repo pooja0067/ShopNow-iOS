@@ -49,6 +49,7 @@ struct CartRowView: View {
                             .font(.callout.bold())
                         Text(category)
                             .font(Font.caption.bold())
+                            .foregroundStyle(.gray)
                     }
                     Spacer()
                     Button {
@@ -63,6 +64,7 @@ struct CartRowView: View {
                     }
 
                 }
+                .padding(.top, 24)
                 HStack {
                     Text("$\(price, specifier: "%.2f")")
                     Spacer()
@@ -82,7 +84,7 @@ struct CartRowView: View {
                                     RoundedRectangle(cornerRadius: 4).foregroundStyle(.gray).opacity(0.28)
                                 )
                         }
-                        Text("\(numOfItems)")
+                        Text("\(item.qty)")
                             .font(.title3.bold())
                         Button {
                             if !(numOfItems == limitofItems) {
@@ -109,9 +111,9 @@ struct CartRowView: View {
                                     RoundedRectangle(cornerRadius: 4).foregroundStyle(.gray).opacity(0.28)
                                 )
                         }
-
                     }
                 }
+                .padding(.bottom, 24)
             }
             .frame(maxWidth: .infinity)
             .padding(.leading, -40)
@@ -137,6 +139,12 @@ struct CartRowView: View {
                     .padding(.bottom, 24)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
             }
+        }
+        .onAppear {
+            numOfItems = cart.items.count
+        }
+        .onChange(of: cart.items.count) { oldValue, newValue in
+            numOfItems = newValue
         }
     }
 }

@@ -81,9 +81,3 @@ struct CardView: View {
         .shadow(color: Color.black.opacity(0.30), radius: 8, x: 0, y: 4)
     }
 }
-
-#Preview {
-    CardView(id: 1, title: "Jacket", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 15.0, category: "Men's clothging", action: {
-        print("add to cart")
-    })
-}
