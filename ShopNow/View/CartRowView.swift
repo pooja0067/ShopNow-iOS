@@ -12,10 +12,11 @@ struct CartRowView: View {
     var image: String
     var price: Double
     var category: String
+    let limitofItems = 5
     @Binding var isAdded: Bool
     @Binding var isSubtracted: Bool
     @State var numOfItems: Int = 1
-    
+    var closeAction: () -> Void
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: image)) { phase in
@@ -49,7 +50,7 @@ struct CartRowView: View {
                     }
                     Spacer()
                     Button {
-                        
+                       closeAction()
                     } label: {
                         Image(systemName: "stroke.line.diagonal.slash")
                             .foregroundStyle(.gray)
@@ -108,8 +109,4 @@ struct CartRowView: View {
         )
         .shadow(color: Color.black.opacity(0.30), radius: 8, x: 0, y: 4)
     }
-}
-
-#Preview(traits: .sizeThatFitsLayout) {
-    CartRowView(title: "Long full", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png", price: 9.009999, category: "T-shirt", isAdded: .constant(true), isSubtracted: .constant(true))
 }

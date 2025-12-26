@@ -8,20 +8,28 @@
 import SwiftUI
 
 struct CartTotalView: View {
-    @EnvironmentObject private var cart: CartStore
+    @Binding var totalAmount: Int
+    private var subtotal: Double { Double(totalAmount) }
+    private var tax: Double { subtotal * 10.0 / 100.0 }
+    private var grandTotal: Double { subtotal + tax }
+
+    private func money(_ value: Double) -> String {
+        String(format: "%.2f", value)
+    }
+    
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("SubTotal")
+                    Text("Subtotal")
                         .font(.title3)
-                    Text("Tax")
+                    Text("Tax (1%)")
                         .font(.title3)
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("$100.00")
-                    Text("$10.00")
+                    Text("$\(money(subtotal))")
+                    Text("$\(money(tax))")
                 }
             }
             Divider()
@@ -29,10 +37,11 @@ struct CartTotalView: View {
                 Text("Total")
                     .font(.title.bold())
                 Spacer()
-                Text("$123.00")
+                Text("$\(money(grandTotal))")
+                    .font(.title3.bold())
             }
-            Button {
-                // checkout
+            NavigationLink {
+                PaymentView()
             } label: {
                 Text("Checkout ")
                     .font(.title3)
@@ -51,8 +60,4 @@ struct CartTotalView: View {
         .frame(maxWidth: .infinity)
         .padding()
     }
-}
-
-#Preview {
-    CartTotalView()
 }

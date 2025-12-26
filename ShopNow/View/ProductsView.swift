@@ -21,7 +21,7 @@ struct ProductsView: View {
         
         NavigationStack {
             Text("Shop now")
-                .font(.custom("Arial Rounded MT Bold", size: 34).italic())
+                .font(.custom("Arial Rounded MT Bold", size: 30).italic())
                 .bold(true)
             ScrollView(showsIndicators: false) {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -83,13 +83,17 @@ struct ProductsView: View {
                         CartView()
                     } label: {
                         Image(systemName: "cart")
-                            .font(.title3)
-                            .background(
-                                Circle()
-                                    .fill(Color.red)
-                                    .frame(width: 12, height: 12)
-                                    .offset(x: 12, y: -10)
-                            )
+                            .font(.title2)
+                            .overlay(alignment: .topTrailing) {
+                                Text("\(cart.totalCount > 9 ? "9+" : "\(cart.totalCount)")")
+                                    .font(.callout.bold())
+                                    .foregroundStyle(.white)
+                                    .background(
+                                        Circle().fill(Color.red)
+                                            .frame(width: 18, height: 18)
+                                    )
+                                    .offset(y: -2)
+                            }
                     }
                 }
             }
@@ -109,8 +113,4 @@ struct ProductsView: View {
             }
         }
     }
-}
-
-#Preview {
-    ProductsView(viewModel: ProductsViewModel())
 }
