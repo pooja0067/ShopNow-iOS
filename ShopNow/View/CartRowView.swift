@@ -47,6 +47,8 @@ struct CartRowView: View {
                     VStack(alignment: .leading) {
                         Text(title)
                             .font(.callout.bold())
+                            .lineLimit(2)
+                            .truncationMode(.tail)
                         Text(category)
                             .font(Font.caption.bold())
                             .foregroundStyle(.gray)
@@ -56,13 +58,8 @@ struct CartRowView: View {
                        closeAction()
                     } label: {
                         Image(systemName: "stroke.line.diagonal.slash")
-                            .foregroundStyle(.gray)
-                            .padding(6)
-                            .background(
-                                Circle().foregroundStyle(.gray).opacity(0.28)
-                            )
+                            .foregroundStyle(.black)
                     }
-
                 }
                 .padding(.top, 24)
                 HStack {

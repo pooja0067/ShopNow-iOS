@@ -20,9 +20,6 @@ struct ProductsView: View {
         ]
         
         NavigationStack {
-            Text("Shop now")
-                .font(.custom("Arial Rounded MT Bold", size: 30).italic())
-                .bold(true)
             ScrollView(showsIndicators: false) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
@@ -77,6 +74,8 @@ struct ProductsView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 16)
             }
+            .navigationTitle("Shop now")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {

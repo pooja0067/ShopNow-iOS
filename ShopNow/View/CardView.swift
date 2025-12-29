@@ -47,14 +47,14 @@ struct CardView: View {
                     .fontWeight(.bold)
                     .foregroundStyle(.black)
                 
-                Text("$\(String(format: "%.2f", price))")
-                    .font(.caption)
-                    .foregroundStyle(.black)
-
                 Text(category)
                     .font(.caption2)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.gray)
                     .padding(.bottom, 12)
+                
+                Text("$\(String(format: "%.2f", price))")
+                    .font(.title3).bold()
+                    .foregroundStyle(.black)
 
                 Button {
                     action()
