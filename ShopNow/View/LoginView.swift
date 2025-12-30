@@ -11,6 +11,7 @@ struct LoginView: View {
     @Binding var emailField: String
     @Binding var pwdField: String
     @Binding var tab: String
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -76,7 +77,12 @@ struct LoginView: View {
                     }
                     
                     //MARK: - BUTTON VIEW
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink {
+                        ContentView()
+                            .onAppear {
+                                hasLaunchedBefore = true
+                            }
+                    } label: {
                         Text("Login")
                             .font(.title)
                             .frame(maxWidth: .infinity)
@@ -84,7 +90,6 @@ struct LoginView: View {
                             .background(Color.orange)
                             .foregroundColor(.white)
                     }
-                    
                     .cornerRadius(8)
                     .padding(.horizontal, 16)
                     
