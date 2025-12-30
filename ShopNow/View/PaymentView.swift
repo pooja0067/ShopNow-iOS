@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PaymentView: View {
     @State private var selectedOptionId: String = ""
+    @EnvironmentObject var navigator: NavigationManager
+    
     var body: some View {
         VStack {
             Text("Payment")
@@ -22,8 +24,8 @@ struct PaymentView: View {
             PaymentcardView(title: "COD", image: "creditcard.rewards.fill", optionId: "3", selectedOptionId: $selectedOptionId)
             
             Spacer()
-            NavigationLink {
-                AllDoneView()
+            Button {
+                navigator.path.append(Route.allDone)
             } label: {
                 Text("Continue")
                     .font(.title)

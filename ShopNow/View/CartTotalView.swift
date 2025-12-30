@@ -12,7 +12,8 @@ struct CartTotalView: View {
     private var subtotal: Double { Double(totalAmount) }
     private var tax: Double { subtotal * 10.0 / 100.0 }
     private var grandTotal: Double { subtotal + tax }
-
+    @EnvironmentObject var navigator: NavigationManager
+    
     private func money(_ value: Double) -> String {
         String(format: "%.2f", value)
     }
@@ -40,8 +41,8 @@ struct CartTotalView: View {
                 Text("$\(money(grandTotal))")
                     .font(.title3.bold())
             }
-            NavigationLink {
-                PaymentView()
+            Button {
+                navigator.path.append(Route.payments)
             } label: {
                 Text("Checkout ")
                     .font(.title3)

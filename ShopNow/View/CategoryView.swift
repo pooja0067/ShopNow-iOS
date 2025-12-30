@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CategoryView: View {
     var categoriesRepo = CategoriesRepo()
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var navigator: NavigationManager
     var body: some View {
         let columns = [
             GridItem(.flexible(), spacing: 16),
@@ -22,8 +24,8 @@ struct CategoryView: View {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(categoriesRepo.loadCategoriesFromFile()) { category in
                     VStack {
-                        NavigationLink {
-                            ProductsView(viewModel: ProductsViewModel())
+                        Button {
+                            dismiss()
                         } label: {
                             if let url = URL(string: category.image) {
                                 AsyncImage(url: url) { phase in

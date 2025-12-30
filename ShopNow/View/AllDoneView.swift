@@ -10,6 +10,7 @@ import SwiftUI
 struct AllDoneView: View {
     
     @State private var isAnimating: Bool = false
+    @EnvironmentObject var navigator: NavigationManager
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct AllDoneView: View {
                 .font(.largeTitle.bold())
             Spacer()
             Button {
-                //
+                navigator.path.removeLast(3)
             } label: {
                 Text("Continue")
                     .font(.title)
@@ -45,7 +46,7 @@ struct AllDoneView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    //
+                    navigator.path.removeLast(3)
                 } label: {
                     Image(systemName: "xmark")
                         .font(.title3)

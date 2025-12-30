@@ -76,7 +76,7 @@ struct LoginView: View {
                     }
                     
                     //MARK: - BUTTON VIEW
-                    NavigationLink(destination: ContentView(viewModel: ProductsViewModel())) {
+                    NavigationLink(destination: ContentView()) {
                         Text("Login")
                             .font(.title)
                             .frame(maxWidth: .infinity)

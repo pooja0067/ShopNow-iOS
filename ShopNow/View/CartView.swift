@@ -13,44 +13,43 @@ struct CartView: View {
     @State var isAdded: Bool = false
     @State var isSubtracted: Bool = false
     @State var totalAmount: Double = 0.0
+    @EnvironmentObject var navigator: NavigationManager
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                if cart.items.isEmpty {
-                    VStack(spacing: 24) {
-                        ContentUnavailableView("No items in cart", systemImage: "cart.fill")
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("Continue shopping")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .padding(8)
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(.orange)
-                                )
-                        }
-                        .frame(height: 60)
-                        .padding()
-
+        ScrollView {
+            if cart.items.isEmpty {
+                VStack(spacing: 24) {
+                    ContentUnavailableView("No items in cart", systemImage: "cart.fill")
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Continue shopping")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding(8)
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.orange)
+                            )
                     }
-                } else {
-                    VStack {
-                        ForEach(cart.items) { car in
-                            CartRowView(item: car, title: car.title, image: car.image, price: car.price, category: car.category) {
-                                cart.delete(productId: car.id)
-                            }
-                        }
-                        Spacer()
-                        CartTotalView(totalAmount: .constant(Int(cart.totalPrice)))
-                    }
-                    .navigationTitle("Shop now")
-                    .navigationBarTitleDisplayMode(.inline)
+                    .frame(height: 60)
+                    .padding()
+                    
                 }
+            } else {
+                VStack {
+                    ForEach(cart.items) { car in
+                        CartRowView(item: car, title: car.title, image: car.image, price: car.price, category: car.category) {
+                            cart.delete(productId: car.id)
+                        }
+                    }
+                    Spacer()
+                    CartTotalView(totalAmount: .constant(Int(cart.totalPrice)))
+                }
+                .navigationTitle("Shop now")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

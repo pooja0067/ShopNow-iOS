@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 import Combine
 
-class NavigationManager: ObservableObject {
+final class NavigationManager: ObservableObject {
     @Published var path = NavigationPath()
+}
+
+enum Route: Hashable {
+    case cart
+    case category
+    case payments
+    case allDone
 }

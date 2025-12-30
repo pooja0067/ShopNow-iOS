@@ -9,35 +9,26 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var path = NavigationPath()
-    @State private var isSelected: Bool = false
-    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
-    @ObservedObject var viewModel: ProductsViewModel
+    @EnvironmentObject var navigator: NavigationManager
+    @StateObject private var viewModel = ProductsViewModel()
+    
     var body: some View {
-        NavigationStack(path: $path) {
-            VStack {
-                VStack {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(viewModel.products) { product in
-                                Text(product.category)
-                            }
-                        }
+        NavigationStack(path: $navigator.path) {
+            ProductsView(viewModel: viewModel)
+                .navigationTitle("Shop now")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .cart:
+                        CartView()
+                    case .category:
+                        CategoryView()
+                    case .payments:
+                        PaymentView()
+                    case .allDone:
+                        AllDoneView()
                     }
                 }
-                NavigationLink(destination: ProductsView(viewModel: viewModel)) {
-                    Text("hello")
-                }
-            }
         }
-        .onAppear {
-            hasLaunchedBefore = true
-        }
-        .navigationTitle("Shop now")
-        .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-#Preview {
-    ContentView(viewModel: ProductsViewModel())
 }
