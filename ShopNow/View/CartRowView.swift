@@ -67,7 +67,7 @@ struct CartRowView: View {
                     Spacer()
                     HStack(spacing: 14) {
                         Button {
-                            if numOfItems != 0 {
+                            if item.qty != 0 {
                                 numOfItems =  numOfItems - 1
                                 cart.decrease(productId: item.id)
                             }
@@ -84,7 +84,7 @@ struct CartRowView: View {
                         Text("\(item.qty)")
                             .font(.title3.bold())
                         Button {
-                            if !(numOfItems == limitofItems) {
+                            if !(item.qty == limitofItems) {
                                 numOfItems =  numOfItems + 1
                                 cart.add(product: item)
                             } else {

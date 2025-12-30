@@ -12,13 +12,14 @@ struct PaymentView: View {
     @EnvironmentObject var navigator: NavigationManager
     
     var body: some View {
-        VStack {
-            Text("Payment")
-                .font(Font.title.bold())
-                .padding()
-            Text("How would you like to pay?")
-                .font(Font.title3.bold())
-                .padding()
+        VStack(alignment: .leading) {
+            Text("Select Payment Method")
+                .font(Font.title2.bold())
+                .padding(.bottom, 8)
+                .padding(.horizontal, 16)
+            Text("Choose a payment option to complete your purchase")
+                .font(Font.title3)
+                .padding(.horizontal, 16)
             PaymentcardView(title: "Payment card", image: "creditcard.rewards.fill", optionId: "1", selectedOptionId: $selectedOptionId)
             PaymentcardView(title: "Phone Pay", image: "creditcard.rewards.fill", optionId: "2", selectedOptionId: $selectedOptionId)
             PaymentcardView(title: "COD", image: "creditcard.rewards.fill", optionId: "3", selectedOptionId: $selectedOptionId)
@@ -41,6 +42,8 @@ struct PaymentView: View {
             }
             .padding()
         }
+        .navigationTitle("Shop now")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

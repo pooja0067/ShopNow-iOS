@@ -69,6 +69,8 @@ struct CategoryView: View {
             }
             .padding(16)
         }
+        .navigationTitle("Shop now")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

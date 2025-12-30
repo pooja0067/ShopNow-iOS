@@ -122,6 +122,8 @@ struct LoginView: View {
                     }
                 }//MAINVSTACK
             }
+            .navigationTitle("Shop now")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

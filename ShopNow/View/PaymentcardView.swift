@@ -42,6 +42,7 @@ struct PaymentcardView: View {
             Spacer()
             Toggle("", isOn: isOnBinding)
                 .labelsHidden()
+                .padding()
         }
         .frame(maxWidth: .infinity)
         .padding(16)
