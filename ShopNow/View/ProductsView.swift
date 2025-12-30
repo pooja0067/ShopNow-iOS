@@ -92,7 +92,7 @@ struct ProductsView: View {
                                     Circle().fill(Color.red)
                                         .frame(width: 18, height: 18)
                                 )
-                                .offset(y: -2)
+                                .offset(x: -3, y: -3)
                         }
                 }
             }
