@@ -69,3 +69,22 @@ final class TotalDiscountRepo {
     }
 }
 
+//MARK: - Data source coupon
+
+final class CouponRepo {
+    func loadCouponFromFile() -> [CouponModel] {
+        guard let url = Bundle.main.url(forResource: "coupon", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            return []
+        }
+
+        do {
+            return try JSONDecoder().decode([CouponModel].self, from: data)
+        } catch {
+            print("Error decoding pricing rules:", error)
+            return []
+        }
+    }
+}
+
+

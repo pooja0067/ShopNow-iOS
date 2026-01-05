@@ -61,3 +61,16 @@ struct PricingRule: Codable {
     let discount: Double
     let tax: Double
 }
+
+// MARK: - Model for coupon
+
+struct CouponModel: Codable, Identifiable {
+    let id: UUID = UUID()           
+    let coupon_code: String
+    let amount: Double
+    let percentage: Double
+    
+    enum CodingKeys: String, CodingKey {
+            case coupon_code, amount, percentage      // decoder will decode only these keys
+        }
+}

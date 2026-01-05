@@ -11,7 +11,7 @@ struct CartView: View {
     @EnvironmentObject private var cart: CartStore
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var navigator: NavigationManager
-    
+    @State var appliedCoupon: Bool = false
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -52,6 +52,8 @@ struct CartView: View {
                                 cart.delete(productId: car.id)
                             }
                         }
+                        
+                        CouponCardView(appliedCoupon: $appliedCoupon)
 
                         Spacer(minLength: 16)
 
