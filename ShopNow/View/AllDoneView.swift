@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllDoneView: View {
     
+    @EnvironmentObject private var cart: CartStore
     @State private var isAnimating: Bool = false
     @EnvironmentObject var navigator: NavigationManager
     
@@ -26,6 +27,7 @@ struct AllDoneView: View {
                 .font(.largeTitle.bold())
             Spacer()
             Button {
+                cart.clear()
                 navigator.path.removeLast(3)
             } label: {
                 Text("Continue")
@@ -46,6 +48,7 @@ struct AllDoneView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
+                    cart.clear()
                     navigator.path.removeLast(3)
                 } label: {
                     Image(systemName: "xmark")
