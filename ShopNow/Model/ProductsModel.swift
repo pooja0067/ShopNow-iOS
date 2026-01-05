@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Model for products view
 struct ProductsModel: Codable, Identifiable {
     let id: Int
     let title: String
@@ -35,6 +36,16 @@ extension ProductsModel {
     }
 }
 
+struct CartItem: Identifiable, Codable, Equatable {
+    let id: Int            // product id
+    let title: String
+    let image: String
+    let price: Double
+    let category: String
+    var qty: Int
+}
+
+//MARK: - Model for category view
 struct CategoryModel: Codable, Identifiable, Hashable {
     let id: UUID = UUID()           // auto-generated, not decoded
     let name: String
@@ -45,11 +56,8 @@ struct CategoryModel: Codable, Identifiable, Hashable {
         }
 }
 
-struct CartItem: Identifiable, Codable, Equatable {
-    let id: Int            // product id
-    let title: String
-    let image: String
-    let price: Double
-    let category: String
-    var qty: Int
+// MARK: - Model for tax and discount
+struct PricingRule: Codable {
+    let discount: Double
+    let tax: Double
 }

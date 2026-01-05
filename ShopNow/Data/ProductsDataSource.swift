@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Data source for products
 class ProductsDataSource {
     private let baseURL = URL(string: "https://fakestoreapi.com/products")!
     
@@ -31,6 +32,7 @@ class ProductsDataSource {
     }
 }
 
+//MARK: - Data source for category
 class CategoriesRepo {
     
     func loadCategoriesFromFile() -> [CategoryModel] {
@@ -47,3 +49,23 @@ class CategoriesRepo {
         }
     }
 }
+
+
+//MARK: - Data source tax and discount
+
+final class TotalDiscountRepo {
+    func loadPricingRulesFromFile() -> [String: PricingRule] {
+        guard let url = Bundle.main.url(forResource: "discount", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            return [:]
+        }
+
+        do {
+            return try JSONDecoder().decode([String: PricingRule].self, from: data)
+        } catch {
+            print("Error decoding pricing rules:", error)
+            return [:]
+        }
+    }
+}
+

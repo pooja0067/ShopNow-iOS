@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9D29554A2EE80ED400E323B4 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D2955452EE8073C00E323B4 /* categories.json */; };
+		9DE5D4D62F07DC7100AEC3FB /* discount.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5D4D52F07DC7100AEC3FB /* discount.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9D2955452EE8073C00E323B4 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		9DDEF38F2EE69E6500B677F1 /* ShopNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE5D4D52F07DC7100AEC3FB /* discount.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = discount.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				9D2955452EE8073C00E323B4 /* categories.json */,
+				9DE5D4D52F07DC7100AEC3FB /* discount.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE5D4D62F07DC7100AEC3FB /* discount.json in Resources */,
 				9D29554A2EE80ED400E323B4 /* categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

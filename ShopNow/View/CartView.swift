@@ -10,9 +10,6 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject private var cart: CartStore
     @Environment(\.dismiss) private var dismiss
-    @State var isAdded: Bool = false
-    @State var isSubtracted: Bool = false
-    @State var totalAmount: Double = 0.0
     @EnvironmentObject var navigator: NavigationManager
     
     var body: some View {
@@ -58,7 +55,8 @@ struct CartView: View {
 
                         Spacer(minLength: 16)
 
-                        CartTotalView(totalAmount: .constant(Int(cart.totalPrice)))
+                        CartTotalView(item: cart.items,
+                                      totalAmount: .constant(Int(cart.totalPrice)))
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 12)
