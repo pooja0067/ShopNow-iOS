@@ -12,6 +12,7 @@ struct CartView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var navigator: NavigationManager
     @State var appliedCoupon: Bool = false
+    @State var couponFieldText: String = ""
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -53,7 +54,7 @@ struct CartView: View {
                             }
                         }
                         
-                        CouponCardView(appliedCoupon: $appliedCoupon)
+                        CouponCardView(appliedCoupon: $appliedCoupon, couponFieldText: $couponFieldText)
 
                         Spacer(minLength: 16)
 
