@@ -6,8 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9D16924D2F0B9132009622AB /* coupon.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D16924C2F0B9132009622AB /* coupon.json */; };
+		9D29554A2EE80ED400E323B4 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D2955452EE8073C00E323B4 /* categories.json */; };
+		9DE5D4D62F07DC7100AEC3FB /* discount.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE5D4D52F07DC7100AEC3FB /* discount.json */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		9D16924C2F0B9132009622AB /* coupon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coupon.json; sourceTree = "<group>"; };
+		9D2955452EE8073C00E323B4 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		9DDEF38F2EE69E6500B677F1 /* ShopNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE5D4D52F07DC7100AEC3FB /* discount.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = discount.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -29,9 +38,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D2955442EE8072600E323B4 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				9D2955452EE8073C00E323B4 /* categories.json */,
+				9DE5D4D52F07DC7100AEC3FB /* discount.json */,
+				9D16924C2F0B9132009622AB /* coupon.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		9DDEF3862EE69E6500B677F1 = {
 			isa = PBXGroup;
 			children = (
+				9D2955442EE8072600E323B4 /* Json */,
 				9DDEF3912EE69E6500B677F1 /* ShopNow */,
 				9DDEF3902EE69E6500B677F1 /* Products */,
 			);
@@ -109,6 +129,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE5D4D62F07DC7100AEC3FB /* discount.json in Resources */,
+				9D16924D2F0B9132009622AB /* coupon.json in Resources */,
+				9D29554A2EE80ED400E323B4 /* categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

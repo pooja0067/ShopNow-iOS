@@ -1,0 +1,52 @@
+[
+  {
+    "coupon_code": "SAVE50NOW",
+    "amount": 50,
+    "percentage": null
+  },
+  {
+    "coupon_code": "FLAT75OFF",
+    "amount": 75,
+    "percentage": null
+  },
+  {
+    "coupon_code": "MEGA120",
+    "amount": 120,
+    "percentage": null
+  },
+  {
+    "coupon_code": "DEAL165",
+    "amount": 165,
+    "percentage": null
+  },
+  {
+    "coupon_code": "SUPER199",
+    "amount": 199,
+    "percentage": null
+  },
+  {
+    "coupon_code": "PERCENT10",
+    "amount": null,
+    "percentage": 10
+  },
+  {
+    "coupon_code": "DISCOUNT15",
+    "amount": null,
+    "percentage": 15
+  },
+  {
+    "coupon_code": "SAVE20PCT",
+    "amount": null,
+    "percentage": 20
+  },
+  {
+    "coupon_code": "EXTRA25",
+    "amount": null,
+    "percentage": 25
+  },
+  {
+    "coupon_code": "BONUS30",
+    "amount": null,
+    "percentage": 30
+  }
+]

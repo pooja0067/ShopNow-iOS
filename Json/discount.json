@@ -1,0 +1,18 @@
+{
+  "men's clothing": {
+    "discount": 18,
+    "tax": 9
+  },
+  "jewelery": {
+    "discount": 7,
+    "tax": 15
+  },
+  "electronics": {
+    "discount": 22,
+    "tax": 5
+  },
+  "women's clothing": {
+    "discount": 14,
+    "tax": 12
+  }
+}
